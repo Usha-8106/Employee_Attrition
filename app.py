@@ -2,14 +2,18 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
+
 #Load the model and label encoder
 model = joblib.load("attrition_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 feature_columns = joblib.load("feature_columns.pkl")
+
 st.title("Employee Attrition Prediction")
 st.markdown("Enter the employee details to predict if they are likely to leave the company.")
+
 # Function to get user input for prediction
 st.sidebar.header("Employee Details")
+
 def get_user_input():
     inputs = {}
     inputs['Age'] = st.sidebar.number_input("Age",min_value=18,max_value=65,value=30)
